@@ -1,0 +1,47 @@
+<div class="outerContainer">
+  <nz-card class="loginCard">
+    <div class="logo-area mb2">
+      <img src="/assets/images/logo-icon.png" alt="ownprep">
+    </div>
+    <h2 class="loginHeader">Login</h2>
+    <p class="verinfo">Enter your registered Mobile number and Password to login.</p>
+    <form nz-form [formGroup]="loginForm" class="login-form">
+      <nz-form-item  class="loginfld" >
+        <nz-form-control nzErrorTip="Please input your phone number!" [nzErrorTip]="errorTplEmail">
+          <nz-input-group nzAddOnBeforeIcon="phone">
+            <input type="text" nz-input formControlName="phone" placeholder="Phone"/>
+            <ng-template #errorTplEmail let-control>
+              <ng-container *ngIf="control.hasError('required')">
+                Please input registered phone number
+              </ng-container>
+              <ng-container *ngIf="control.hasError('pattern')">
+                Please input a valid phone number
+              </ng-container>
+            </ng-template>
+          </nz-input-group>
+        </nz-form-control>
+      </nz-form-item>
+      <nz-form-item  class="loginfld" >
+        <nz-form-control nzErrorTip="Please input your Password!">
+          <nz-input-group nzAddOnBeforeIcon="lock">
+            <input type="password" nz-input formControlName="password" placeholder="Password" />
+          </nz-input-group>
+        </nz-form-control>
+      </nz-form-item>
+      <div nz-row class="login-form-margin">
+
+        <div nz-col [nzSpan]="24" class="login-form-forgot">
+          <a>Forgot password</a>
+        </div>
+      </div>
+      <div nz-col [nzSpan]="24" class="login-button">
+        <button nz-button class="login-form-button login-form-margin" [nzType]="'primary'"
+          (click)="submitLoginForm()" [nzLoading]="isLoading">Log
+          in</button>
+      </div>
+      <div nz-col [nzSpan]="24" style="text-align: center; font-weight: 500;">
+        Don't have an account? <a [routerLink]="['/auth/registration']">Register Now</a>
+      </div>
+    </form>
+  </nz-card>
+</div>

@@ -1,0 +1,48 @@
+.usinford {
+    margin-bottom: 0px;
+    text-align: center;
+    overflow: hidden;
+    b {
+        font-size: 51px;
+        float: left;
+        line-height: 1;
+        font-weight: 600;
+        color: #555;
+    }
+    span {
+        text-align: center;
+        font-size: 45px;
+        color: var(--color-white);
+    }
+}
+
+p.readmoreinfo {
+    margin-bottom: 0px;
+    outline: none !important;
+    font-size: 12px;
+    color: #6291be;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+p.readmoreinfo:hover {
+    color: #000;
+}
+
+::ng-deep .dashcard .ant-card-body{
+    background-color: var(--color-theme1);
+    border-radius: 0 0 10px 10px;
+}
+
+.dashcard{
+    text-align: center;    
+}
+::ng-deep .dashcard .ant-card-head{
+    background-color: var(--color-theme1); 
+}
+
+::ng-deep .dashcard .ant-card-head-title{
+    color: var(--color-white);
+    font-size: 20px;
+    padding-bottom: 0px;
+}

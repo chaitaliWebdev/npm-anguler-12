@@ -1,0 +1,94 @@
+.trigger {
+  font-size: 28px;
+  line-height: 58px;
+  padding: 6px 24px 0;
+  cursor: pointer;
+  transition: color 0.3s;
+  color: var(--color-theme1) !important;
+}
+
+.trigger:hover {
+  color: #062672;
+}
+.rightPart {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  div {
+    margin: 0 8px;
+  }
+  div:last-child {
+    margin: 0 0px;
+  }
+  i {
+    color: var(--color-theme1);
+    font-size: 20px;
+    
+  }
+  nz-avatar {
+    margin-left: 5px;
+    cursor: pointer;
+  }
+}
+
+.ant-layout-header {
+  padding: 0 24px; 
+  background: var(--color-white);
+  margin-bottom: 0px; 
+}
+
+
+.ant-dropdown-menu-item {
+  padding: 15px 24px;
+}
+
+.bell-icon:hover {
+  animation: shake 1s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+  animation-iteration-count: infinite;
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+
+@keyframes shake {
+  10%,
+  90% {
+    transform: translate3d(-1px, 0, 0);
+  }
+
+  20%,
+  80% {
+    transform: translate3d(2px, 0, 0);
+  }
+
+  30%,
+  50%,
+  70% {
+    transform: translate3d(-4px, 0, 0);
+  }
+
+  40%,
+  60% {
+    transform: translate3d(4px, 0, 0);
+  }
+}
+
+.logo h2{
+  font-weight: 700;
+  font-size: 36px;
+  color: var(--color-white);
+  margin-bottom: 0;
+}
+
+.sidebarLogo{
+  display: inline-block;
+  max-width: 100%;
+}
+
+.profilesubmenu li a{
+  color: var(--color-theme1);
+  font-weight: 500;
+  i{
+    margin-right: 5px;
+  }
+}

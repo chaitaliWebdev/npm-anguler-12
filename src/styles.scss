@@ -1,0 +1,322 @@
+/* You can add global styles to this file, and also import other style files */
+/* Jan 25 */
+@import "variables";
+@font-face {
+  font-family: "Montserrat";
+  src: url("assets/webfonts/Montserrat-Bold.eot");
+  src: url("assets/webfonts/Montserrat-Bold.eot?#iefix")
+      format("embedded-opentype"),
+    url("assets/webfonts/Montserrat-Bold.woff2") format("woff2"),
+    url("assets/webfonts/Montserrat-Bold.woff") format("woff"),
+    url("assets/webfonts/Montserrat-Bold.ttf") format("truetype"),
+    url("assets/webfonts/Montserrat-Bold.svg#Montserrat-Bold") format("svg");
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Montserrat";
+  src: url("assets/webfonts/Montserrat-Regular.eot");
+  src: url("assets/webfonts/Montserrat-Regular.eot?#iefix")
+      format("embedded-opentype"),
+    url("assets/webfonts/Montserrat-Regular.woff2") format("woff2"),
+    url("assets/webfonts/Montserrat-Regular.woff") format("woff"),
+    url("assets/webfonts/Montserrat-Regular.ttf") format("truetype"),
+    url("assets/webfonts/Montserrat-Regular.svg#Montserrat-Regular")
+      format("svg");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Montserrat";
+  src: url("assets/webfonts/Montserrat-Medium.eot");
+  src: url("assets/webfonts/Montserrat-Medium.eot?#iefix")
+      format("embedded-opentype"),
+    url("assets/webfonts/Montserrat-Medium.woff2") format("woff2"),
+    url("assets/webfonts/Montserrat-Medium.woff") format("woff"),
+    url("assets/webfonts/Montserrat-Medium.ttf") format("truetype"),
+    url("assets/webfonts/Montserrat-Medium.svg#Montserrat-Medium") format("svg");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Montserrat";
+  src: url("assets/webfonts/Montserrat-SemiBold.eot");
+  src: url("assets/webfonts/Montserrat-SemiBold.eot?#iefix")
+      format("embedded-opentype"),
+    url("assets/webfonts/Montserrat-SemiBold.woff2") format("woff2"),
+    url("assets/webfonts/Montserrat-SemiBold.woff") format("woff"),
+    url("assets/webfonts/Montserrat-SemiBold.ttf") format("truetype"),
+    url("assets/webfonts/Montserrat-SemiBold.svg#Montserrat-SemiBold")
+      format("svg");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+body {
+  font-family: "Montserrat";
+  font-size: 14px;
+  letter-spacing: 0.5px;
+  background-color: #f0f2f5;
+}
+.ant-card {
+  border-radius: $isssCardRadius !important;
+  box-shadow: $isssShadow;
+  .ant-card-actions {
+    border-radius: 0 0 $isssCardRadius $isssCardRadius !important;
+  }
+  .ant-card-head {
+    border-radius: $isssCardRadius $isssCardRadius 0 0 !important;
+    background: rgb(220 239 245);
+    .ant-card-extra {
+      a {
+        color: $isssSecondaryColor;
+      }
+    }
+    .ant-card-head-title {
+      font-weight: bold;
+    }
+  }
+}
+
+.ant-table {
+  line-height: 0.5715;
+  // .ant-table-thead > tr > th {
+  //   background: rgb(247 121 36 / 40%);
+  // }
+  // .ant-table-thead > tr > th:first-child {
+  //   border-radius: $isssCardRadius 0 0 0 !important;
+  // }
+  // .ant-table-thead > tr > th:last-child {
+  //   border-radius: 0 $isssCardRadius 0 0 !important;
+  // }
+  // .ant-table-thead > tr > th:only-child {
+  //   border-radius: $isssCardRadius $isssCardRadius 0 0 !important;
+  // }
+  // .ant-table-thead {
+  //   .ant-table-cell {
+  //     font-weight: bold;
+  //   }
+  // }
+}
+
+.ant-card:hover {
+  box-shadow: $isssShadowHover;
+}
+.ant-card.no-color {
+  .ant-card-head {
+    background: #ffffff;
+  }
+}
+
+.ant-collapse {
+  border-radius: $isssCardRadius !important;
+  box-shadow: $isssShadow;
+  .ant-collapse-actions {
+    border-radius: 0 0 $isssCardRadius $isssCardRadius !important;
+  }
+  .ant-collapse-header {
+    // border-radius: $isssCardRadius $isssCardRadius 0 0 !important;
+    background: rgb(247 121 36 / 40%);
+    .ant-collapse-extra {
+      a {
+        color: $isssSecondaryColor;
+      }
+    }
+    font-weight: bold;
+  }
+}
+
+.ant-collapse:hover {
+  box-shadow: $isssShadowHover;
+}
+.ant-collapse.no-color {
+  .ant-collapse-head {
+    background: #ffffff;
+  }
+}
+
+.isss-shadow {
+  box-shadow: $isssShadow;
+}
+.isss-shadow:hover {
+  box-shadow: $isssShadowHover;
+}
+
+/* End Jan 25 */
+
+.topheadingifbutton {
+  position: relative;
+  margin-bottom: 20px;
+  clear: both;
+  overflow: hidden;
+  border-bottom: 1px solid #e2e2e2;
+  padding-bottom: 15px;
+  h3 {
+    float: left;
+    font-size: 22px;
+    letter-spacing: 0.2px;
+  }
+}
+
+//status active/in-active
+.active {
+  background-color: green;
+}
+.inactive {
+  background-color: red;
+}
+.status {
+  width: 12px;
+  height: 12px;
+  display: block;
+  // float: right;
+  margin-left: 5px;
+}
+// Dynamic Margin & Padding class:
+$sizes: 12;
+
+@mixin margin-classes {
+  @for $i from 1 through $sizes {
+    $margin: $i * 0.25rem;
+    /* margin #{$margin} */
+    .m#{$i} {
+      margin: $margin;
+    }
+    .ml#{$i} {
+      margin-left: $margin;
+    }
+    .mr#{$i} {
+      margin-right: $margin;
+    }
+    .mt#{$i} {
+      margin-top: $margin;
+    }
+    .mb#{$i} {
+      margin-bottom: $margin;
+    }
+    .mx#{$i} {
+      margin-left: $margin;
+      margin-right: $margin;
+    }
+    .my#{$i} {
+      margin-top: $margin;
+      margin-bottom: $margin;
+    }
+  }
+}
+@include margin-classes;
+
+@mixin padding-classes {
+  @for $i from 1 through $sizes {
+    $padding: $i * 0.25rem;
+    /* padding #{$padding} */
+    .p#{$i} {
+      padding: $padding;
+    }
+    .pl#{$i} {
+      padding-left: $padding;
+    }
+    .pr#{$i} {
+      padding-right: $padding;
+    }
+    .pt#{$i} {
+      padding-top: $padding;
+    }
+    .pb#{$i} {
+      padding-bottom: $padding;
+    }
+    .px#{$i} {
+      padding-left: $padding;
+      padding-right: $padding;
+    }
+    .py#{$i} {
+      padding-top: $padding;
+      padding-bottom: $padding;
+    }
+  }
+}
+@include padding-classes;
+
+.addUpdateButton {
+  float: right;
+}
+
+.ant-tag-checkable {
+  border: 1px solid;
+}
+
+:root {
+  --color-base: #000;
+  --color-theme: #7e4fdd;
+  --color-theme1: #314361;
+  --color-lightgray: #f2f2f2;
+  --color-mideumgray: #d0d0d0;
+  --color-white: #fff;
+}
+
+.app-layout {
+  background-color: #f9f9f9;
+  min-height: 100vh;
+}
+
+.ant-menu-inline,
+.ant-menu-vertical,
+.ant-menu-vertical-left {
+  border: none;
+}
+
+.ant-table-thead > tr > th,
+.ant-table-tbody > tr > td,
+.ant-table tfoot > tr > th,
+.ant-table tfoot > tr > td {
+  line-height: 1.6;
+}
+
+.ant-menu-inline .ant-menu-item-group-list .ant-menu-submenu-title,
+.ant-menu-inline .ant-menu-submenu-title {
+  padding-left: 0px !important;
+}
+
+.ant-menu-sub.ant-menu-inline{
+  background: transparent !important;
+}
+
+.ant-menu{
+  background-color: transparent !important;
+}
+
+
+
+.ant-input-prefix {
+    margin-right: 12px;
+}
+
+.ant-input{
+  padding: 7px 11px;
+}
+
+.topheadingifbutton h3{
+  font-weight: 600;
+}
+
+.coursecard{
+  width:100%; 
+  margin-bottom: 20px; 
+  text-align: center;
+  i{
+    font-size: 30px;
+    color: var(--color-theme1);
+    margin-bottom: 12px;
+  }
+  h3{
+    color: var(--color-theme1);
+  }
+}
+

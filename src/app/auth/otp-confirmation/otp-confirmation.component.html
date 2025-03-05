@@ -1,0 +1,53 @@
+<nz-card class="loginCard">
+    <div class="logo-area mb2">
+      <img src="/assets/images/logo-icon.png" alt="ownprep">
+    </div>
+    <h2 class="loginHeader">Sign up with OwnPrep</h2>      
+    <p class="verinfo">Enter reveived OTP and validate your mobile number.</p>
+    <form nz-form [formGroup]="confirmOtpForm" class="login-form">
+      <nz-form-item  class="loginfld" >
+          <nz-form-label class="boldlabel" [nzSpan]="24" nzFor="phone"
+            >Mobile Number <small>(10 digit)</small></nz-form-label
+          >
+        <nz-form-control nzErrorTip="Please input your Mobile Number!" [nzErrorTip]="errorTplPhone">
+          <nz-input-group nzAddOnBeforeIcon="phone" class="disablefield">
+            <input type="text" nz-input formControlName="phone" placeholder="Enter 10 digit Mobile Number" readonly />
+            <ng-template #errorTplPhone let-control>
+              <ng-container *ngIf="control.hasError('required')">
+                Please input 10 digit Mobile number!
+              </ng-container>
+              <ng-container *ngIf="control.hasError('pattern')">
+                Please input a valid Mobile number!
+              </ng-container>
+            </ng-template>
+          </nz-input-group>
+        </nz-form-control>
+      </nz-form-item>  
+      <nz-form-item  class="loginfld" >
+        <nz-form-label class="boldlabel" [nzSpan]="24" nzFor="mobileOtpVerification" nzRequired
+          >Enter OTP <small>(4 digit)</small></nz-form-label
+        >
+      <nz-form-control nzErrorTip="Please enter OTP!">
+        <nz-input-group nzAddOnBeforeIcon="unlock">
+          <input type="text" nz-input formControlName="mobileOtpVerification" placeholder="Enter 4 digit OTP"/>
+          
+        </nz-input-group>
+      </nz-form-control>
+    </nz-form-item>  
+
+    <div class="resendOtpContainer">          
+          <a nz-button [nzSize]="'small'" nzType="link" (click)="resendOtp()" [disabled]="countDownStart">Resend
+            OTP</a>
+          <nz-countdown [nzValue]="deadline" [nzFormat]="'mm:ss'" (nzCountdownFinish)="countDownStart = false;">
+          </nz-countdown>
+    </div>    
+      
+      <div nz-col [nzSpan]="24" class="login-button">
+        <button nz-button class="login-form-button login-form-margin" [nzType]="'primary'"
+          (click)="confirmOtp()" [nzLoading]="isLoading">Confirm with OTP</button>
+      </div>
+      <div nz-col [nzSpan]="24" style="text-align: center; font-weight: 500;">
+        Already have an account? <a [routerLink]="['/auth/login']">Login</a>
+      </div>
+    </form>   
+  </nz-card>

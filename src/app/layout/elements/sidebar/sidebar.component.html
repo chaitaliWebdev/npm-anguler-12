@@ -1,0 +1,25 @@
+<ul nz-menu nzMode="inline" [nzInlineCollapsed]="isCollapsed" nzTheme="light"  class="customsidebar">
+  <ng-container *ngFor="let item of menuData">
+    <li nz-menu-item nzMatchRouter nz-tooltip nzTooltipPlacement="right" [nzTooltipTitle]="isCollapsed ? item.title : ''" *ngIf="!item.children || item.children.length === 0"
+      routerLinkActive="router-link-active" [routerLink]="[item.route]"><i nz-icon [nzType]="item.icon"></i>
+      <span>{{item.title}}</span>
+    </li>
+    <li nz-submenu *ngIf="item.children && item.children.length > 0" [nzTitle]="item.title" [nzIcon]="item.icon"
+      routerLinkActive="router-link-active">
+      <ul>
+        <li nz-menu-item nzMatchRouter [routerLink]="[data.route]" *ngFor="let data of item.children">{{data.title}}
+        </li>
+      </ul>
+    </li>
+  </ng-container>
+</ul>
+
+<!-- <ul nz-menu nzTheme="light" nzMode="inline" class="customsidebar">
+  <ng-container *ngFor="let item of menuData">
+    <li nz-menu-item nzMatchRouter  nz-tooltip nzTooltipPlacement="right" [nzTooltipTitle]="item.title"
+    *ngIf="!item.children || item.children.length === 0" routerLinkActive="router-link-active" [routerLink]="[item.route]">
+      <i nz-icon [nzType]="item.icon"></i>
+      <span>{{item.title}}</span>
+    </li>
+  </ng-container>
+</ul> -->

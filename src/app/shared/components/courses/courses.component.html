@@ -1,0 +1,13 @@
+<h2>Browse by Course</h2>
+
+<div nz-row [nzGutter]="{ xs: 0, sm: 0, md: 20, lg: 20 }">
+    <div nz-col nzLg="6" nzMd="6" nzSm="24" nzXs="24" *ngFor="let courseInfo of allCourses;index as i">
+        <a >
+        <nz-card class="coursecard">
+            <i nz-icon nzType="form" nzTheme="outline"></i>
+            <h3>{{courseInfo.courseName}}</h3>
+          </nz-card>
+        </a>
+    </div>
+</div>
+

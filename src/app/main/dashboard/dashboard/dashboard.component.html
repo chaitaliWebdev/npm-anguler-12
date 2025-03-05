@@ -1,0 +1,66 @@
+<div class="topheadingifbutton">
+  <h3>Dashboard</h3>
+</div>
+
+<div nz-row [nzGutter]="{ xs: 0, sm: 0, md: 20, lg: 20 }">
+  <div nz-col nzLg="6" nzMd="6" nzSm="24" nzXs="24">
+    <a [routerLink]="['/main/practice-exercise']">
+      <nz-card nzTitle="Practice Exercise" class="dashcard">
+        <p class="usinford">
+          <b *ngIf="dashboardData && dashboardData.countJournal">{{
+            dashboardData.countJournal
+          }}</b
+          ><span><i nz-icon nzType="form" nzTheme="outline"></i></span>
+        </p>
+      </nz-card>
+    </a>
+  </div>
+  <div nz-col nzLg="6" nzMd="6" nzSm="24" nzXs="24">
+    <a [routerLink]="['/main/practice-test']">
+      <nz-card nzTitle="Practice Test" class="dashcard">
+        <p class="usinford">
+          <b *ngIf="dashboardData && dashboardData.countJournalDownload">{{
+            dashboardData.countJournalDownload
+          }}</b
+          ><span><i nz-icon nzType="audit" nzTheme="outline"></i></span>
+        </p>
+      </nz-card>
+    </a>
+  </div>
+  <div nz-col nzLg="6" nzMd="6" nzSm="24" nzXs="24">
+    <a [routerLink]="['/main/test-series']">
+      <nz-card nzTitle="Test Series" class="dashcard">
+        <p class="usinford">
+          <b *ngIf="dashboardData && dashboardData.countMember">{{
+            dashboardData.countMember
+          }}</b
+          ><span><i nz-icon nzType="diff" nzTheme="outline"></i></span>
+        </p>
+      </nz-card>
+    </a>
+  </div>
+  <div nz-col nzLg="6" nzMd="6" nzSm="24" nzXs="24">
+    <a [routerLink]="['/main/watch-and-learn']">
+      <nz-card nzTitle="Watch & Learn" class="dashcard">
+        <p class="usinford">
+          <b *ngIf="dashboardData && dashboardData.countAuthors">{{
+            dashboardData.countAuthors
+          }}</b
+          ><span><i nz-icon nzType="video-camera" nzTheme="outline"></i></span>
+        </p>
+      </nz-card>
+    </a>
+  </div>
+</div>
+<div style="height: 40px"></div>
+<!-- <div nz-row [nzGutter]="{ xs: 0, sm: 0, md: 20, lg: 20 }">
+  
+  <div nz-col nzLg="6" nzMd="6" nzSm="24" nzXs="24">
+    <nz-card nzTitle="Number of Viewers" class="dashcard">
+      <p class="usinford">
+        <b  *ngIf="dashboardData && dashboardData.countViews">{{ dashboardData.countViews }}</b>
+        <span><i nz-icon nzType="eye" nzTheme="outline"></i></span>
+            </p>
+        </nz-card>
+    </div>
+</div> -->

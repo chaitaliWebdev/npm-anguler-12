@@ -1,0 +1,320 @@
+<div nz-row [nzGutter]="16" class="profileArea">
+  <div nz-col class="gutter-row" nzMd="12" nzSm="24">
+    <nz-card>
+      <h3 class="changepassword">My Profile</h3>
+      <form nz-form [formGroup]="profileForm">
+        <div nz-row [nzGutter]="16">
+          <div
+            nz-col
+            class="gutter-row"
+            nzLg="12"
+            nzMd="12"
+            nzSm="24"
+            nzXs="24"
+          >
+            <!------First Name-->
+            <nz-form-item>
+              <nz-form-label [nzSpan]="24" nzFor="firstName" class="boldlabel"
+                >First Name
+              </nz-form-label>
+              <nz-form-control [nzSpan]="24" nzErrorTip="Should not be blank">
+                <input
+                  nz-input
+                  formControlName="firstName"
+                  type="text"
+                  placeholder="First name"
+                />
+              </nz-form-control>
+            </nz-form-item>
+          </div>
+          <div
+            nz-col
+            class="gutter-row"
+            nzLg="12"
+            nzMd="12"
+            nzSm="24"
+            nzXs="24"
+          >
+            <!------last Name-->
+            <nz-form-item>
+              <nz-form-label [nzSpan]="24" nzFor="lastName" class="boldlabel"
+                >Last Name
+              </nz-form-label>
+              <nz-form-control [nzSpan]="24" nzErrorTip="Should not be blank">
+                <input
+                  nz-input
+                  formControlName="lastName"
+                  type="text"
+                  placeholder="Last name"
+                />
+              </nz-form-control>
+            </nz-form-item>
+          </div>
+          <div
+            nz-col
+            class="gutter-row"
+            nzLg="12"
+            nzMd="12"
+            nzSm="24"
+            nzXs="24"
+          >
+            <!----- Email -->
+            <nz-form-item>
+              <nz-form-label [nzSpan]="24" nzFor="email" class="boldlabel"
+                >Email</nz-form-label
+              >
+              <nz-form-control [nzSpan]="24">
+                <input nz-input formControlName="email" type="email" readonly />
+              </nz-form-control>
+            </nz-form-item>
+          </div>
+          <div
+            nz-col
+            class="gutter-row"
+            nzLg="12"
+            nzMd="12"
+            nzSm="24"
+            nzXs="24"
+          >
+            <!----- Phone -->
+            <nz-form-item>
+              <nz-form-label [nzSpan]="24" nzFor="phone" class="boldlabel"
+                >Phone</nz-form-label
+              >
+              <nz-form-control [nzSpan]="24">
+                <input nz-input formControlName="phone" type="text" readonly />
+              </nz-form-control>
+            </nz-form-item>
+          </div>
+          <div
+            nz-col
+            class="gutter-row"
+            nzLg="12"
+            nzMd="12"
+            nzSm="24"
+            nzXs="24"
+          >
+            <!------College-->
+            <nz-form-item>
+              <nz-form-label [nzSpan]="24" nzFor="college" class="boldlabel"
+                >College
+              </nz-form-label>
+              <nz-form-control [nzSpan]="24" nzErrorTip="Should not be blank">
+                <input
+                  nz-input
+                  formControlName="college"
+                  type="text"
+                  placeholder="College"
+                  readonly
+                />
+              </nz-form-control>
+            </nz-form-item>
+          </div>
+          <div
+            nz-col
+            class="gutter-row"
+            nzLg="12"
+            nzMd="12"
+            nzSm="24"
+            nzXs="24"
+          >
+            <!------Institute-->
+            <nz-form-item>
+              <nz-form-label [nzSpan]="24" nzFor="institute" class="boldlabel"
+                >Institute
+              </nz-form-label>
+              <nz-form-control [nzSpan]="24" nzErrorTip="Should not be blank">
+                <input
+                  nz-input
+                  formControlName="institute"
+                  type="text"
+                  placeholder="Institute"
+                  readonly
+                />
+              </nz-form-control>
+            </nz-form-item>
+          </div>
+          <div
+            nz-col
+            class="gutter-row"
+            nzLg="12"
+            nzMd="12"
+            nzSm="24"
+            nzXs="24"
+          >
+            <!------Profile image-->
+
+            <nz-form-item>
+              <nz-form-label
+                [nzSpan]="24"
+                nzFor="profilePicture"
+                class="boldlabel"
+                >Profile Image-(Click to upload or change image)</nz-form-label
+              >
+              <nz-upload
+                class="avatar-uploader"
+                nzName="avatar"
+                nzListType="picture-card"
+                [nzShowUploadList]="false"
+                [nzBeforeUpload]="beforeUpload"
+                (nzChange)="handleChangeForProfileImage($event)"
+                [nzAction]="mediaUploadUrl"
+                [nzHeaders]="customRequestHeaders"
+                [nzName]="'file'"
+              >
+                <ng-container *ngIf="!avatarUrl">
+                  <i
+                    class="upload-icon"
+                    nz-icon
+                    [nzType]="imgLoading ? 'loading' : 'plus'"
+                  ></i>
+                  <div class="ant-upload-text">Upload</div>
+                </ng-container>
+                <img *ngIf="avatarUrl" [src]="avatarUrl" style="width: 100%" />
+              </nz-upload>
+            </nz-form-item>
+          </div>
+
+          <div
+            nz-col
+            class="gutter-row"
+            nzLg="24"
+            nzMd="24"
+            nzSm="24"
+            nzXs="24"
+            style="text-align: right"
+          >
+            <nz-form-item>
+              <nz-form-control>
+                <button
+                  nz-button
+                  [nzType]="'primary'"
+                  (click)="submit()"
+                  [nzLoading]="buttonLoading"
+                  class="profilebutton"
+                >
+                  Update Profile
+                </button>
+              </nz-form-control>
+            </nz-form-item>
+          </div>
+        </div>
+      </form>
+    </nz-card>
+  </div>
+  <div nz-col class="gutter-row" nzMd="12" nzSm="24">
+    <nz-card>
+      <h3 class="changepassword">Change Password</h3>
+      <form nz-form [formGroup]="changePasswordForm">
+        <div nz-row [nzGutter]="16">
+          <div
+            nz-col
+            class="gutter-row"
+            nzLg="12"
+            nzMd="12"
+            nzSm="24"
+            nzXs="24"
+          >
+            <!------ Password-->
+            <nz-form-item>
+              <nz-form-label
+                [nzSpan]="24"
+                nzFor="password"
+                nzRequired
+                class="boldlabel"
+                >Password</nz-form-label
+              >
+              <nz-form-control nzErrorTip="Please input your Password!">
+                <nz-input-group [nzAddOnAfter]="passwordIconTpl">
+                  <input
+                    [type]="!viewPassword ? 'password' : 'text'"
+                    nz-input
+                    formControlName="password"
+                    placeholder="Password"
+                    (ngModelChange)="updateConfirmValidator()"
+                  />
+                </nz-input-group>
+                <ng-template #passwordIconTpl>
+                  <i
+                    nz-icon
+                    [nzType]="!viewPassword ? 'eye' : 'eye-invisible'"
+                    nzTheme="outline"
+                    (click)="viewPassword = !viewPassword"
+                  ></i>
+                </ng-template>
+              </nz-form-control>
+            </nz-form-item>
+          </div>
+          <div
+            nz-col
+            class="gutter-row"
+            nzLg="12"
+            nzMd="12"
+            nzSm="24"
+            nzXs="24"
+          >
+            <!----- Confirm Password -->
+            <nz-form-item>
+              <nz-form-label
+                [nzSpan]="24"
+                nzFor="reEnterPassword"
+                nzRequired
+                class="boldlabel"
+                >Confirm Password</nz-form-label
+              >
+              <nz-form-control [nzSpan]="24" [nzErrorTip]="errorTpl">
+                <nz-input-group [nzAddOnAfter]="reEnterpasswordIconTpl">
+                  <input
+                    [type]="!viewReEnterPassword ? 'password' : 'text'"
+                    nz-input
+                    formControlName="reEnterPassword"
+                    placeholder="Re-Enter Password"
+                  />
+                  <ng-template #reEnterpasswordIconTpl>
+                    <i
+                      nz-icon
+                      [nzType]="!viewReEnterPassword ? 'eye' : 'eye-invisible'"
+                      nzTheme="outline"
+                      (click)="viewReEnterPassword = !viewReEnterPassword"
+                    ></i>
+                  </ng-template>
+                </nz-input-group>
+                <ng-template #errorTpl let-control>
+                  <ng-container *ngIf="control.hasError('required')">
+                    Please confirm your password
+                  </ng-container>
+                  <ng-container *ngIf="control.hasError('confirm')">
+                    Password and Confirm Password must be match!
+                  </ng-container>
+                </ng-template>
+              </nz-form-control>
+            </nz-form-item>
+          </div>
+          <div
+            nz-col
+            class="gutter-row"
+            nzLg="24"
+            nzMd="24"
+            nzSm="24"
+            nzXs="24"
+            style="text-align: right"
+          >
+            <nz-form-item>
+              <nz-form-control>
+                <button
+                  nz-button
+                  [nzType]="'primary'"
+                  (click)="updatePassword()"
+                  [nzLoading]="passwordChangeLoading"
+                  class="profilebutton"
+                >
+                  Update Password
+                </button>
+              </nz-form-control>
+            </nz-form-item>
+          </div>
+        </div>
+      </form>
+    </nz-card>
+  </div>
+</div>

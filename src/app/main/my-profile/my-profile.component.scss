@@ -1,0 +1,28 @@
+.changepassword {
+    font-weight: bold;
+    font-size: 18px;
+    margin-top: 20px;
+}
+
+.boldlabel{
+    font-weight: 500;
+}
+
+.profilebutton{
+    font-weight: 500;
+    padding: 7px 30px;
+    height: auto;
+    font-size: 15px;
+    background-color: var(--color-theme1);
+    border-radius: 2px;
+}
+
+.profileArea{
+    .ant-card{
+        height: 100%;
+    }
+}
+
+input[readonly]{
+    background-color: #f9f9f9;
+}
